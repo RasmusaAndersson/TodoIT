@@ -25,7 +25,10 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName)throws IllegalAccessException {
+        if (firstName== null) {
+            throw new IllegalAccessException("Firstname was null");
+        }
         this.firstName = firstName;
     }
 
@@ -33,7 +36,10 @@ public class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName)throws IllegalAccessException {
+        if (lastName == null) {
+            throw new IllegalAccessException("lastname was null");
+        }
         this.lastName = lastName;
     }
 
@@ -41,11 +47,14 @@ public class Person {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws IllegalAccessException{
+        if (email == null) {
+            throw new IllegalAccessException("email was null");
+        }
         this.email = email;
     }
 
     public String getSummary() {
-        return "{id: " + id + ", name: " + firstName + " " + lastName + ", email: " + email + "}";
+        return "First Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email;
     }
 }
