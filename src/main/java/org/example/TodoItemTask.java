@@ -37,8 +37,8 @@ public class TodoItemTask {
     }
 
     public void setTodoItem(TodoItem todoItem)throws IllegalAccessException{
-        if (todoItem == null){
-            throw new IllegalAccessException("TodoItem was null");
+        if (todoItem != null){
+            throw new IllegalAccessException("TodoItem wasn't null");
         }
         this.todoItem = todoItem;
     }

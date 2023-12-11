@@ -31,7 +31,10 @@ public class TodoItem {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) throws IllegalAccessException {
+        if (title == null) {
+            throw new IllegalAccessException("Title was null");
+        }
         this.title = title;
     }
 
@@ -39,7 +42,10 @@ public class TodoItem {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) throws IllegalAccessException {
+        if (description == null) {
+            throw new IllegalAccessException("Description was null");
+        }
         this.description = description;
     }
 
@@ -47,7 +53,10 @@ public class TodoItem {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) {
+    public void setDeadline(Date deadline) throws IllegalAccessException {
+        if (deadline == null) {
+            throw new IllegalAccessException("Deadline was null");
+        }
         this.deadline = deadline;
     }
 
@@ -55,8 +64,9 @@ public class TodoItem {
         return done;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public void setDone(String done) {
+        this.done = Boolean.parseBoolean(done);
+
     }
 
     public Person getCreator() {
@@ -68,7 +78,7 @@ public class TodoItem {
     }
 
     public String getSummary() {
-        return "{id: " + id + ", title: " + title + ", description: " + description + ", deadline: " + deadline + ", done: " + done + ", creator: " + creator.getSummary() + "}";
+        return "id: " + id + "\ntitle: " + title + "\ndescription: " + description + "\ndeadline: " + deadline + "\ndone: " + done + "\ncreator: " + creator.getSummary();
     }
 
     public boolean isOverdue() {
