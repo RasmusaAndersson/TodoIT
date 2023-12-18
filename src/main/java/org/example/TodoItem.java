@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class TodoItem {
     private int id;
@@ -64,9 +65,8 @@ public class TodoItem {
         return done;
     }
 
-    public void setDone(String done) {
-        this.done = Boolean.parseBoolean(done);
-
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public Person getCreator() {
@@ -77,11 +77,28 @@ public class TodoItem {
         this.creator = creator;
     }
 
-    public String getSummary() {
-        return "id: " + id + "\ntitle: " + title + "\ndescription: " + description + "\ndeadline: " + deadline + "\ndone: " + done + "\ncreator: " + creator.getSummary();
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        TodoItem that = (TodoItem) obj;
+        return id == that.id && done == that.done && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(deadline, that.deadline) && Objects.equals(creator, that.creator);
     }
 
-    public boolean isOverdue() {
-        return new LocalDate().after(deadline);
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, deadline, done, creator);
+    }
+
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", deadline=" + deadline +
+                ", done=" + done +
+                ", creator=" + creator +
+                '}';
     }
 }

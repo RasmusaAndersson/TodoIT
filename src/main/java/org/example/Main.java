@@ -7,8 +7,8 @@ public class Main {
         TodoItem todoItem = new TodoItem(1337, "Complete TodoIt", "Write code", new LocalDate(), false, person);
         TodoItemTask todoItemTask = new TodoItemTask(1337, true, todoItem, person);
 
-        System.out.println(person.getSummary());
-        System.out.println(todoItem.getSummary());
-        System.out.println(todoItemTask.getSummary());
+        System.out.println(person.toString());
+        System.out.println(todoItem.toString());
+        System.out.println(todoItemTask.toString());
     }
 }
