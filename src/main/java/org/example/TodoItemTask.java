@@ -25,20 +25,20 @@ public class TodoItemTask {
         return assigned;
     }
 
-    public void setAssigned(String assigned)throws IllegalAccessException{
+    public void setAssigned(Boolean assigned)throws IllegalArgumentException{
         if (assigned == null){
-            throw new IllegalAccessException("Assigned was null");
+            throw new IllegalArgumentException("Assigned was null");
         }
-        this.assigned = Boolean.parseBoolean(assigned);
+        this.assigned = assigned;
     }
 
     public TodoItem getTodoItem() {
         return todoItem;
     }
 
-    public void setTodoItem(TodoItem todoItem)throws IllegalAccessException{
+    public void setTodoItem(TodoItem todoItem)throws IllegalArgumentException{
         if (todoItem != null){
-            throw new IllegalAccessException("TodoItem wasn't null");
+            throw new IllegalArgumentException("TodoItem wasn't null");
         }
         this.todoItem = todoItem;
     }

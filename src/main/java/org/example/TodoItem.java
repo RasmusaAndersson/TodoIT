@@ -1,16 +1,16 @@
 package org.example;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class TodoItem {
     private int id;
     private String title;
     private String description;
-    private Date deadline;
+    private LocalDate deadline;
     private boolean done;
     private Person creator;
 
-    public TodoItem(int id, String title, String description, Date deadline, boolean done, Person creator) {
+    public TodoItem(int id, String title, String description, LocalDate deadline, boolean done, Person creator) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -31,9 +31,9 @@ public class TodoItem {
         return title;
     }
 
-    public void setTitle(String title) throws IllegalAccessException {
+    public void setTitle(String title) throws IllegalArgumentException {
         if (title == null) {
-            throw new IllegalAccessException("Title was null");
+            throw new IllegalArgumentException("Title was null");
         }
         this.title = title;
     }
@@ -42,20 +42,20 @@ public class TodoItem {
         return description;
     }
 
-    public void setDescription(String description) throws IllegalAccessException {
+    public void setDescription(String description) throws IllegalArgumentException {
         if (description == null) {
-            throw new IllegalAccessException("Description was null");
+            throw new IllegalArgumentException("Description was null");
         }
         this.description = description;
     }
 
-    public Date getDeadline() {
+    public LocalDate getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Date deadline) throws IllegalAccessException {
+    public void setDeadline(LocalDate deadline) throws IllegalArgumentException {
         if (deadline == null) {
-            throw new IllegalAccessException("Deadline was null");
+            throw new IllegalArgumentException("Deadline was null");
         }
         this.deadline = deadline;
     }
@@ -82,6 +82,6 @@ public class TodoItem {
     }
 
     public boolean isOverdue() {
-        return new Date().after(deadline);
+        return new LocalDate().after(deadline);
     }
 }
