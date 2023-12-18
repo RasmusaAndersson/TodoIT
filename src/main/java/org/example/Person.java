@@ -9,7 +9,7 @@ public class Person {
     private String email;
     private AppUser credentials;
 
-    public Person(int id, String firstName, String lastName, String email, AppUser credentials) {
+    public Person(int id, String firstName, String lastName, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
