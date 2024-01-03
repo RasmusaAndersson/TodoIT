@@ -29,9 +29,9 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) throws IllegalAccessException {
+    public void setFirstName(String firstName) throws IllegalArgumentException {
         if (firstName == null) {
-            throw new IllegalAccessException("Firstname was null");
+            throw new IllegalArgumentException("Firstname was null");
         }
         this.firstName = firstName;
     }
@@ -40,9 +40,9 @@ public class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) throws IllegalAccessException {
+    public void setLastName(String lastName) throws IllegalArgumentException {
         if (lastName == null) {
-            throw new IllegalAccessException("lastname was null");
+            throw new IllegalArgumentException("lastname was null");
         }
         this.lastName = lastName;
     }
@@ -51,9 +51,9 @@ public class Person {
         return email;
     }
 
-    public void setEmail(String email) throws IllegalAccessException {
+    public void setEmail(String email) throws IllegalArgumentException {
         if (email == null) {
-            throw new IllegalAccessException("email was null");
+            throw new IllegalArgumentException("email was null");
         }
         this.email = email;
     }
